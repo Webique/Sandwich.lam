@@ -1,0 +1,1044 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Theme Colors */
+:root {
+    --primary-color: #a0292b; /* Deep red-brown */
+    --secondary-color: #dfc5ac; /* Soft beige */
+    --background-color: #ffffff; /* White background */
+    --hover-color: rgba(160, 41, 43, 0.7); /* Transparent primary color */
+    --secondary-text-color: #6b5b53; /* Muted text color */
+    --white: #ffffff;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--secondary-color); /* Beige background for navbar */
+    color: var(--primary-color); /* Deep red text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    padding: 0.8rem 1.5rem; /* Compact padding */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center; /* Vertically center the logo and text */
+    gap: 10px; /* Add some spacing between the logo and the text */
+}
+
+.logo {
+    height: 60px; /* Larger logo size */
+    width: auto;
+}
+
+.cafe-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Deep red */
+    text-transform: uppercase;
+    line-height: 1; /* Prevent extra spacing around the text */
+}
+
+/* Navigation Menu (Desktop) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem; /* Slightly larger text */
+    font-weight: 700; /* Thicker text */
+    color: var(--primary-color); /* Deep red */
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--hover-color); /* Slightly lighter red */
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it appears above everything */
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color); /* Deep red */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Menu Active State */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Dropdown Menu */
+.nav-links.mobile {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--secondary-color); /* Beige background for mobile dropdown */
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 999;
+    transform: translateY(-100%); /* Slide out of view */
+    opacity: 0; /* Invisible by default */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transition */
+}
+
+.nav-links.mobile.active {
+    transform: translateY(0); /* Slide into view */
+    opacity: 1; /* Fully visible */
+    display: flex;
+}
+
+.nav-links.mobile.active li {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slight downward offset */
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.nav-links.mobile.active li:nth-child(1) {
+    animation-delay: 0.1s; /* Delayed animation for each item */
+}
+.nav-links.mobile.active li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.nav-links.mobile.active li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.nav-links.mobile.active li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
+.nav-links.mobile a {
+    font-size: 1.4rem; /* Larger font size for mobile */
+    font-weight: 700; /* Thicker text */
+    color: var(--primary-color); /* Deep red text */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links.mobile a:hover {
+    color: var(--hover-color); /* Slightly lighter red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        height: 50px; /* Slightly smaller logo for mobile */
+    }
+
+    .cafe-name {
+        font-size: 1.5rem; /* Adjust font size for the cafe name on mobile */
+    }
+
+    /* Show Hamburger Menu */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide Desktop Navbar */
+    .nav-links {
+        display: none;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 60vh; /* Set height to 60% of the viewport */
+    width: 100%;
+    background: url('assets/hero.jpg') center center / cover no-repeat; /* Hero background image */
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Slight dark overlay for contrast */
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-size: 4rem;
+    font-weight: 800; /* Bold for emphasis */
+    color: var(--secondary-color); /* Soft beige for the title */
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Subtle spacing for a clean look */
+    text-align: center;
+    display: inline-block;
+    animation: fadeInLetter 2s ease-in-out forwards, professionalGlow 1.5s infinite alternate;
+}
+
+.hero-tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--background-color); /* White text for contrast */
+    margin-top: 1rem;
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+/* Animations */
+@keyframes fadeInLetter {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Slide up */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Stop sliding */
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Slide up slightly */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Stop sliding */
+    }
+}
+
+@keyframes professionalGlow {
+    0% {
+        text-shadow: 0 0 5px var(--secondary-color),
+                     0 0 10px rgba(255, 255, 255, 0.5),
+                     0 0 15px var(--primary-color); /* Deep red-brown glow */
+    }
+    100% {
+        text-shadow: 0 0 8px var(--secondary-color),
+                     0 0 12px rgba(255, 255, 255, 0.7),
+                     0 0 20px var(--primary-color); /* Brighter glow */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem; /* Adjust title size for tablets */
+        letter-spacing: 2px;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* Ensure consistent height across smaller screens */
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Smaller title for mobile */
+        letter-spacing: 1.5px;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh; /* Consistent height for small phones */
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Adjust title size for small phones */
+        letter-spacing: 1px;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+}
+
+/* Who We Are Section */
+.who-we-are {
+    padding: 5rem 2rem; /* Symmetrical padding */
+    background-color: var(--secondary-color); /* Beige background */
+    color: var(--primary-color); /* Deep red-brown text */
+    text-align: center;
+    overflow: hidden; /* For animations */
+}
+
+.who-we-are .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Symmetrical spacing for consistent layout */
+}
+
+.who-we-are .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Clean spacing */
+    margin-bottom: 1.5rem;
+    color: var(--primary-color); /* Deep red-brown for the title */
+    opacity: 0;
+    transform: translateY(50px); /* Start off-screen */
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.who-we-are .section-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--secondary-text-color); /* Softer muted brown for the text */
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateY(50px); /* Start off-screen */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.3s; /* Staggered fade-in effect */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .who-we-are {
+        padding: 4rem 1.5rem;
+    }
+
+    .who-we-are .section-title {
+        font-size: 2rem;
+    }
+
+    .who-we-are .section-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 768px) {
+    .who-we-are {
+        padding: 3rem 1rem;
+    }
+
+    .who-we-are .section-title {
+        font-size: 1.8rem;
+        letter-spacing: 1.2px;
+    }
+
+    .who-we-are .section-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .who-we-are {
+        padding: 2rem 1rem;
+    }
+
+    .who-we-are .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .who-we-are .section-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* Menu Section */
+.menu-section {
+    position: relative;
+    padding: 5rem 2rem; /* Matches padding from other sections */
+    text-align: center;
+    overflow: hidden; /* For animations */
+    color: var(--primary-color); /* Deep red-brown text color */
+    background-color: var(--secondary-color); /* Beige background color */
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('bck.png') center center / cover no-repeat; /* Background image */
+    filter: blur(8px); /* Blur effect for subtlety */
+    opacity: 0.4; /* Slight transparency for readability */
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+.menu-section .container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Ensure consistent horizontal spacing */
+    z-index: 1; /* Bring the content above the background */
+}
+
+.menu-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem; /* Matches spacing with descriptions */
+    color: var(--primary-color); /* Deep red for the title */
+    opacity: 0;
+    transform: translateY(50px); /* Off-screen start */
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.menu-section .section-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: black; /* Middle text set to black */
+    margin: 1rem 0 2rem 0; /* Consistent vertical spacing */
+    opacity: 0;
+    transform: translateY(50px); /* Off-screen start */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.3s; /* Delayed animation for description */
+}
+
+.menu-section .menu-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--background-color); /* White text for better contrast */
+    background-color: var(--primary-color); /* Deep red-brown button */
+    border: none;
+    border-radius: 50px; /* Smooth rounded edges */
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add depth */
+    margin-top: 2rem; /* Space between button and description */
+}
+
+.menu-section .menu-button:hover {
+    background-color: var(--hover-color); /* Slightly lighter red-brown */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Start below the viewport */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu-section {
+        padding: 4rem 1.5rem; /* Reduced padding for tablets */
+    }
+
+    .menu-section .section-title {
+        font-size: 2rem;
+        letter-spacing: 1.2px;
+    }
+
+    .menu-section .menu-button {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-section {
+        padding: 3rem 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .menu-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .menu-section .menu-button {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-section {
+        padding: 2rem 1rem; /* Further reduce padding for small phones */
+    }
+
+    .menu-section .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .menu-section .menu-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+
+
+
+/* Opening Hours Section */
+.opening-hours {
+    padding: 5rem 2rem; /* Matches other sections */
+    background-color: var(--secondary-color); /* Beige background for theme consistency */
+    text-align: center;
+    overflow: hidden; /* For animations */
+}
+
+.opening-hours .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Consistent spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+.opening-hours .section-title {
+    font-size: 2.8rem; /* Slightly larger for better readability */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem; /* Matches spacing with other titles */
+    color: var(--primary-color); /* Deep red-brown text for the title */
+    opacity: 0;
+    transform: translateY(50px); /* Start off-screen */
+    animation: fadeInUp 1s ease-in-out forwards;
+    text-align: center; /* Ensure proper alignment */
+}
+
+.opening-hours .section-description {
+    font-size: 1.4rem; /* Slightly larger description */
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--secondary-font-color); /* Softer muted brown */
+    margin: 1rem 0 2rem 0; /* Consistent spacing */
+    opacity: 0;
+    transform: translateY(50px); /* Start off-screen */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.3s; /* Staggered fade-in */
+    text-align: center; /* Center description */
+}
+
+.hours-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(50px); /* Start off-screen */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.6s; /* Slight delay for the table */
+    width: 100%; /* Ensure proper width */
+    max-width: 600px; /* Restrict maximum width */
+    margin-left: auto;
+    margin-right: auto; /* Center align on laptop */
+}
+
+.day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem; /* Larger font for visibility */
+    font-weight: 500;
+    color: var(--secondary-font-color); /* Softer muted brown text */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator */
+    padding: 0.8rem 0; /* Add more vertical spacing */
+}
+
+.day-name {
+    text-align: left;
+    font-weight: 600; /* Slightly bolder for emphasis */
+    color: var(--primary-color); /* Deep red-brown */
+}
+
+.day-time {
+    text-align: right;
+    color: var(--secondary-font-color); /* Softer muted brown */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .opening-hours {
+        padding: 4rem 1.5rem; /* Adjust spacing for tablets */
+    }
+
+    .opening-hours .section-title {
+        font-size: 2.4rem; /* Larger title on tablets */
+    }
+
+    .hours-table {
+        gap: 1rem; /* Maintain spacing */
+    }
+
+    .day {
+        font-size: 1.3rem; /* Slightly larger text on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .opening-hours {
+        padding: 3rem 1rem;
+    }
+
+    .opening-hours .section-title {
+        font-size: 2.2rem; /* Larger title for better visibility */
+    }
+
+    .hours-table {
+        gap: 0.8rem;
+    }
+
+    .day {
+        font-size: 1.2rem;
+        flex-direction: column;
+        text-align: center; /* Center-align for smaller screens */
+    }
+
+    .day-name,
+    .day-time {
+        margin: 0.3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .opening-hours {
+        padding: 2rem 1rem;
+    }
+
+    .opening-hours .section-title {
+        font-size: 2rem; /* Slightly larger title for small phones */
+    }
+
+    .day {
+        font-size: 1.4rem; /* Larger text for better readability */
+        padding: 0.8rem 0; /* Add more spacing */
+    }
+}
+
+/* Location Section */
+.location-section {
+    position: relative;
+    padding: 5rem 2rem; /* Matches padding from other sections */
+    text-align: center;
+    overflow: hidden; /* For animations */
+    color: var(--primary-color); /* Deep red-brown text color */
+    background-color: var(--secondary-color); /* Beige background color */
+}
+
+.location-section .container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Consistent horizontal spacing */
+    z-index: 1; /* Bring the content above the background */
+}
+
+.location-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem; /* Matches spacing with descriptions */
+    color: var(--primary-color); /* Deep red for the title */
+    opacity: 0;
+    transform: translateY(50px); /* Off-screen start */
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.location-section .section-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: black; /* Black for small text */
+    margin: 1rem 0 2rem 0; /* Consistent vertical spacing */
+    opacity: 0;
+    transform: translateY(50px); /* Off-screen start */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.3s; /* Delayed animation for description */
+}
+
+.map-frame {
+    width: 100%;
+    max-width: 100%;
+    height: 500px; /* Default height for the map */
+    overflow: hidden;
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.6s; /* Staggered animation for the map */
+}
+
+.map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0; /* Remove default border */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+    .map-frame {
+        height: 600px; /* Taller map for laptops and larger screens */
+    }
+}
+
+@media (max-width: 1024px) {
+    .location-section {
+        padding: 4rem 1.5rem; /* Reduced padding for tablets */
+    }
+
+    .location-section .section-title {
+        font-size: 2rem;
+        letter-spacing: 1.2px;
+    }
+
+    .map-frame {
+        height: 400px; /* Adjusted height for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .location-section {
+        padding: 3rem 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .location-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .map-frame {
+        height: 300px; /* Adjusted height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .location-section {
+        padding: 2rem 1rem; /* Further reduce padding for small phones */
+    }
+
+    .location-section .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .map-frame {
+        height: 250px; /* Smaller iframe for mobile */
+    }
+}
+
+
+
+/* More Section */
+.more-section {
+    padding: 5rem 2rem;
+    background-color: var(--secondary-color); /* Beige background */
+    text-align: center;
+}
+
+.more-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.more-section .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color); /* Deep red-brown */
+    margin-bottom: 1.5rem;
+}
+
+.more-section .section-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--secondary-font-color); /* Muted brown */
+    margin-bottom: 2rem;
+}
+
+/* Button */
+.more-button {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--primary-color), var(--hover-color)); /* Gradient with theme colors */
+    color: var(--background-color); /* White text for contrast */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.more-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.more-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .more-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .more-section .section-description {
+        font-size: 1rem;
+    }
+
+    .more-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .more-section .section-title {
+        font-size: 1.5rem;
+    }
+
+    .more-section .section-description {
+        font-size: 0.9rem;
+    }
+
+    .more-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+    }
+}
+/* Contact Us Footer */
+.contact-footer {
+    padding: 5rem 2rem;
+    background-color: var(--secondary-color); /* Beige background */
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.contact-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Consistent horizontal spacing */
+}
+
+.contact-footer .footer-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color); /* Deep red-brown */
+}
+
+.contact-footer .footer-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--secondary-font-color); /* Softer brown */
+    margin: 1rem 0 2rem 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    font-size: 2rem;
+    color: var(--primary-color); /* Deep red-brown */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-link:hover {
+    color: var(--hover-color); /* Slightly lighter red-brown on hover */
+    transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-footer {
+        padding: 4rem 1.5rem; /* Reduced padding for tablets */
+    }
+
+    .contact-footer .footer-title {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        gap: 1.2rem;
+    }
+
+    .social-link {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-footer {
+        padding: 3rem 1rem;
+    }
+
+    .contact-footer .footer-title {
+        font-size: 1.8rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-link {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-footer {
+        padding: 2rem 1rem;
+    }
+
+    .contact-footer .footer-title {
+        font-size: 1.5rem; /* Smaller text for the title */
+    }
+
+    .contact-footer .footer-description {
+        font-size: 1rem; /* Smaller description text */
+    }
+
+    .social-icons {
+        gap: 2rem; /* Increase spacing between icons */
+    }
+
+    .social-link {
+        font-size: 1.8rem; /* Slightly smaller icons for mobile */
+    }
+}
+
+/* Section Divider */
+.section-divider {
+    height: 1px; /* Thin line */
+    width: 100%; /* Full width */
+    background-color: var(--primary-color); /* Deep red-brown line */
+    opacity: 0.6; /* Slight transparency */
+}

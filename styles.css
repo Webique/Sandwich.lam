@@ -1042,3 +1042,276 @@ body {
     background-color: var(--primary-color); /* Deep red-brown line */
     opacity: 0.6; /* Slight transparency */
 }
+
+
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color); /* Beige Background */
+    color: var(--primary-color); /* Deep Red Text */
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Menu Layout */
+.menu-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--secondary-color); /* Beige background */
+}
+
+/* Sidebar Navigation (Collapsible) */
+.menu-sidebar {
+    width: 300px;
+    background-color: var(--primary-color); /* Deep Red */
+    color: var(--background-color); /* White */
+    padding: 2rem 1.5rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    overflow-y: auto;
+    transition: left 0.4s ease-in-out;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.menu-sidebar.active {
+    left: 0;
+}
+
+/* Sidebar Close Button */
+.close-btn {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--background-color); /* White */
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: right;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Sidebar Open Button */
+.open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-color); /* Deep Red */
+    color: var(--background-color); /* White */
+    border: none;
+    padding: 12px 18px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1100;
+}
+
+.open-btn:hover {
+    background-color: var(--hover-color); /* Slightly lighter red */
+}
+
+/* Sidebar Menu */
+.menu-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-sidebar li {
+    margin-bottom: 1.2rem;
+}
+
+.menu-sidebar a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--background-color); /* White */
+    display: block;
+    padding: 0.6rem;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.menu-sidebar a:hover {
+    background-color: var(--hover-color); /* Lighter red */
+    transform: translateX(8px);
+}
+
+/* Main Content */
+.menu-content {
+    margin-left: 300px;
+    padding: 3rem 2rem;
+    flex-grow: 1;
+    text-align: center;
+    background-color: var(--secondary-color); /* Beige background for content */
+}
+
+/* Main Title */
+.main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color); /* Deep Red */
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* Full Menu Button */
+.full-menu-btn {
+    display: inline-block;
+    background-color: var(--primary-color); /* Deep Red */
+    color: var(--background-color); /* White */
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.full-menu-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--hover-color); /* Slightly lighter red */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: black;
+    letter-spacing: 1.2px;
+}
+
+/* Menu Items */
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    transform: scale(1.06);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.menu-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 0.8rem;
+}
+
+.menu-item p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color); /* Deep Red */
+    margin-top: 0.5rem;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu-content {
+        margin-left: 0;
+        padding: 2rem;
+    }
+
+    .menu-item {
+        width: 250px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+    }
+
+    .menu-sidebar {
+        width: 280px;
+        left: -280px;
+        position: fixed;
+        height: 100vh;
+        transition: left 0.4s ease-in-out;
+    }
+
+    .menu-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+
+    .menu-items {
+        justify-content: center;
+    }
+
+    .full-menu-btn {
+        font-size: 1.2rem;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-content {
+        padding: 1rem;
+    }
+
+    .menu-item {
+        width: 100%;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .full-menu-btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}

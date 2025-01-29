@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Sandwich Lam</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="menu-container">
+        <!-- Sidebar Navigation (Collapsible) -->
+        <nav class="menu-sidebar" id="menuSidebar">
+            <button class="close-btn" id="closeSidebarBtn">✖</button>
+            <ul>
+                <li><a href="#kabab-lahm">كباب لحم</a></li>
+                <li><a href="#shish-tawook">شيش طاووق</a></li>
+                <li><a href="#saj">صاج</a></li>
+                <li><a href="#fried">مقلي</a></li>
+                <li><a href="#group-meals">جمعات</a></li>
+                <li><a href="#snacks">نقنقة</a></li>
+                <li><a href="#sauces">صوصات</a></li>
+            </ul>
+        </nav>
+
+        <!-- Open Sidebar Button -->
+        <button class="open-btn" onclick="toggleSidebar()">☰ القائمة</button>
+        <!-- Main Content -->
+        <main class="menu-content">
+            <h1 class="main-title">📜 قائمة الطعام</h1>
+
+            <!-- Full Menu Button -->
+            <a href="assets/fullmenu.pdf" target="_blank" class="full-menu-btn">📖 عرض القائمة الكاملة</a>
+
+        <!-- Main Content -->
+        <main class="menu-content">
+            <section id="kabab-lahm">
+                <h2 class="section-title">كباب لحم</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image1.jpeg" alt="ساندويش كباب لام">
+                        <h3>ساندويش كباب لام</h3>
+                        <p>15 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image2.jpeg" alt="ساندويتش كباب سيراتشا">
+                        <h3>ساندويتش كباب سيراتشا</h3>
+                        <p>14 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image3.jpeg" alt="ساندويتش كباب بيستو">
+                        <h3>ساندويتش كباب بيستو</h3>
+                        <p>14 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="shish-tawook">
+                <h2 class="section-title">شيش طاووق</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image4.jpeg" alt="ساندويتش شيش طاووق لام">
+                        <h3>ساندويتش شيش طاووق لام</h3>
+                        <p>15 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image5.jpeg" alt="شيش طاووق 2">
+                        <h3>ساندويتش شيش طاووق سيراتشا</h3>
+                        <p>14 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image6.jpeg" alt="شيش طاووق 3">
+                        <h3>ساندويتش شيش طاووق بيستو</h3>
+                        <p>14 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="saj">
+                <h2 class="section-title">صاج</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image7.jpeg" alt="صاج 1">
+                        <h3>ساندويتش لحم وجبنة</h3>
+                        <p>15 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image8.jpeg" alt="صاج 2">
+                        <h3>سانويتش دجاج عالصاج</h3>
+                        <p>14 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fried">
+                <h2 class="section-title">مقلي</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image9.jpeg" alt="مقلي">
+                        <h3>ساندويتش كرسبي لام</h3>
+                        <p>15 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="group-meals">
+                <h2 class="section-title">جمعات</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image10.jpeg" alt="جمعات">
+                        <h3>كرسبي لام</h3>
+                        <p>84 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="snacks">
+                <h2 class="section-title">نقنقة</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image13.jpeg" alt="نقنقة 1">
+                        <h3>بطاطس مبهرة</h3>
+                        <p>6 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image14.jpeg" alt="نقنقة 2">
+                        <h3>بطاطس لام</h3>
+                        <p>14 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image15.jpeg" alt="نقنقة 3">
+                        <h3>أجنحة دجاج</h3>
+                        <p>15 SR</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sauces">
+                <h2 class="section-title">صوصات</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="assets/image16.jpeg" alt="صوص 1">
+                        <h3>صوص لام</h3>
+                        <p>3 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image17.jpeg" alt="صوص 2">
+                        <h3>صوص سيراتشا</h3>
+                        <p>3 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image18.jpeg" alt="صوص 3">
+                        <h3>صوص كلاسيك</h3>
+                        <p>3 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image19.jpeg" alt="صوص 4">
+                        <h3>صوص جبنة</h3>
+                        <p>3 SR</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="assets/image20.jpeg" alt="صوص 5">
+                        <h3>صوص بيستو</h3>
+                        <p>3 SR</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.getElementById("menuSidebar");
+            const openBtn = document.getElementById("openSidebarBtn");
+            const closeBtn = document.getElementById("closeSidebarBtn");
+            const menuLinks = document.querySelectorAll(".menu-sidebar a");
+
+            function openSidebar() {
+                sidebar.classList.add("active");
+                openBtn.style.display = "none"; // Hide the open button
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove("active");
+                openBtn.style.display = "block"; // Show the open button
+            }
+
+            function toggleSidebar() {
+                if (sidebar.classList.contains("active")) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            }
+
+            function handleMenuClick(event, id) {
+                event.preventDefault();
+                scrollToSection(id);
+                closeSidebar(); // Close sidebar when clicking a section
+            }
+
+            function scrollToSection(id) {
+                const section = document.getElementById(id);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 50,
+                        behavior: "smooth"
+                    });
+                }
+            }
+
+            // Click events
+            openBtn.addEventListener("click", openSidebar);
+            closeBtn.addEventListener("click", closeSidebar);
+
+            // Close sidebar when clicking outside of it
+            document.addEventListener("click", function (event) {
+                if (sidebar.classList.contains("active") &&
+                    !sidebar.contains(event.target) &&
+                    event.target !== openBtn) {
+                    closeSidebar();
+                }
+            });
+
+            // Close sidebar and scroll when clicking a menu link
+            menuLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    handleMenuClick(event, this.getAttribute("href").substring(1));
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

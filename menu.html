@@ -12,6 +12,8 @@
 </head>
 <body>
 
+    <a href="index.html" class="return-btn">Return to Main Page</a>
+
 
     <div class="menu-container">
         <!-- Sidebar Navigation (Collapsible) -->
@@ -29,13 +31,13 @@
         </nav>
 
         <!-- Open Sidebar Button -->
-        <button class="open-btn" onclick="toggleSidebar()">☰ القائمة</button>
-        <!-- Main Content -->
-        <main class="menu-content">
-            <h1 class="main-title">📜 قائمة الطعام</h1>
+        <button class="open-btn" id="openSidebarBtn">☰</button>
 
-            <!-- Full Menu Button -->
-            <a href="assets/fullmenu.pdf" target="_blank" class="full-menu-btn">📖 عرض القائمة الكاملة</a>
+<!-- Full Menu Button Centered -->
+<div class="full-menu-container">
+    <a href="assets/fullmenu.pdf" target="_blank" class="full-menu-btn">📖 Full Menu </a>
+</div>
+
 
         <!-- Main Content -->
         <main class="menu-content">
@@ -173,6 +175,7 @@
         </main>
     </div>
 
+    <!-- JavaScript for Sidebar Handling -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sidebar = document.getElementById("menuSidebar");

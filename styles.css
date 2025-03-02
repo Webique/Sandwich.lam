@@ -796,129 +796,52 @@ body {
     color: var(--secondary-font-color);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .opening-hours {
-        padding: 4rem 1.5rem;
+        padding: 3rem 1rem;
+        text-align: center; /* Ensures text is centered */
+    }
+
+    .opening-hours .container {
+        align-items: center; /* Centers content */
+        text-align: center;
     }
 
     .opening-hours .section-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        text-align: center; /* Ensures section title is centered */
     }
 
     .opening-hours .section-description {
         font-size: 1.4rem;
+        text-align: center; /* Centers the description text */
     }
 
     .hours-card {
         padding: 1.5rem;
         flex-direction: column;
-        text-align: center;
+        text-align: center; /* Ensures hours card content is centered */
     }
 
     .hours-card .icon {
         width: 50px;
         height: 50px;
         font-size: 1.6rem;
+        margin: 0 auto; /* Centers the icon */
+    }
+
+    .hours-info {
+        text-align: center; /* Ensures all text inside is centered */
     }
 
     .hours-info .day-name {
         font-size: 1.6rem;
+        text-align: center;
     }
 
     .hours-info .day-time {
         font-size: 1.4rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .opening-hours .section-title {
-        font-size: 2.2rem;
-    }
-
-    .opening-hours .section-description {
-        font-size: 1.3rem;
-    }
-
-    .hours-card {
-        padding: 1.2rem;
-    }
-
-    .hours-info .day-name {
-        font-size: 1.4rem;
-    }
-
-    .hours-info .day-time {
-        font-size: 1.2rem;
-    }
-}
-
-/* Fade-In Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .opening-hours {
-        padding: 4rem 1.5rem; /* Adjust spacing for tablets */
-    }
-
-    .opening-hours .section-title {
-        font-size: 2.4rem; /* Larger title on tablets */
-    }
-
-    .hours-table {
-        gap: 1rem; /* Maintain spacing */
-    }
-
-    .day {
-        font-size: 1.3rem; /* Slightly larger text on tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .opening-hours {
-        padding: 3rem 1rem;
-    }
-
-    .opening-hours .section-title {
-        font-size: 2.2rem; /* Larger title for better visibility */
-    }
-
-    .hours-table {
-        gap: 0.8rem;
-    }
-
-    .day {
-        font-size: 1.2rem;
-        flex-direction: column;
-        text-align: center; /* Center-align for smaller screens */
-    }
-
-    .day-name,
-    .day-time {
-        margin: 0.3rem 0;
+        text-align: center;
     }
 }
 
@@ -928,14 +851,32 @@ body {
     }
 
     .opening-hours .section-title {
-        font-size: 2rem; /* Slightly larger title for small phones */
+        font-size: 2rem;
+        text-align: center;
     }
 
-    .day {
-        font-size: 1.4rem; /* Larger text for better readability */
-        padding: 0.8rem 0; /* Add more spacing */
+    .opening-hours .section-description {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .hours-card {
+        padding: 1.2rem;
+    }
+
+    .hours-info {
+        text-align: center;
+    }
+
+    .hours-info .day-name {
+        font-size: 1.4rem;
+    }
+
+    .hours-info .day-time {
+        font-size: 1.2rem;
     }
 }
+
 
 /* Location Section */
 .location-section {
@@ -1287,4 +1228,37 @@ body {
     width: 100%; /* Full width */
     background-color: var(--primary-color); /* Brown color */
     opacity: 0.6; /* Slight transparency for subtlety */
+}
+/* Language Switch Button */
+.language-btn {
+    position: absolute;
+    top: 20px; /* Back to original for laptop */
+    right: 20px; /* Back to original for laptop */
+    background-color: var(--primary-color); /* Deep Red */
+    color: var(--background-color); /* White */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1100;
+}
+
+.language-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--hover-color); /* Slightly lighter red */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Perfect Positioning on Mobile */
+@media (max-width: 768px) {
+    .language-btn {
+        top: 20px; /* Keeps it perfect on mobile */
+        right: 60px; /* Pushes it left on mobile */
+        font-size: 0.85rem;
+        padding: 7px 12px;
+    }
 }

@@ -1,0 +1,237 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Theme Colors */
+:root {
+    --primary-color: #a0292b; /* Deep red-brown */
+    --secondary-color: #dfc5ac; /* Soft beige */
+    --background-color: #ffffff; /* White background */
+    --hover-color: rgba(160, 41, 43, 0.85); /* Slightly darker red hover */
+    --secondary-text-color: #6b5b53; /* Muted text color */
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 0 20px;
+}
+
+/* Return Button - Top Right */
+.return-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px var(--shadow-color);
+}
+
+.return-btn:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+/* Menu Container */
+.menu-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 60px auto 20px;
+    padding: 20px;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Sidebar Navigation */
+.menu-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: var(--primary-color);
+    padding-top: 60px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+    box-shadow: 4px 0px 10px var(--shadow-color);
+}
+
+.menu-sidebar.active {
+    transform: translateX(0);
+}
+
+.menu-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-sidebar ul li {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.menu-sidebar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 20px;
+    display: block;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.menu-sidebar ul li a:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+/* Sidebar Toggle Buttons */
+.open-btn, .close-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 6px var(--shadow-color);
+    z-index: 1100;
+}
+
+.open-btn:hover, .close-btn:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.1);
+}
+
+.close-btn {
+    display: none;
+}
+
+/* Main Menu Content */
+.menu-content {
+    flex: 1;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Section Styling */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--primary-color);
+    letter-spacing: 1px;
+}
+
+/* Menu Items - Always Centered */
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Menu Card Design */
+.menu-item {
+    background-color: var(--secondary-color);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 12px var(--shadow-color);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    max-width: 320px;
+    flex: 1 1 300px;
+}
+
+.menu-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover img {
+    transform: scale(1.05);
+}
+
+.menu-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 15px;
+}
+
+.menu-item p {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .menu-content {
+        padding: 10px;
+    }
+
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-sidebar {
+        width: 220px;
+    }
+
+    .open-btn {
+        top: 15px;
+        left: 15px;
+    }
+
+    .close-btn {
+        left: 200px;
+    }
+
+    .return-btn {
+        top: 15px;
+        right: 15px;
+        padding: 10px 16px;
+    }
+}
+

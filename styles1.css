@@ -19,7 +19,7 @@
 /* Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
+    background-color: #ecdfd4;
     color: var(--secondary-text-color);
     line-height: 1.6;
     overflow-x: hidden;
